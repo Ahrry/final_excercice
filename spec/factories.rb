@@ -4,5 +4,6 @@ FactoryBot.define do
     item_type { 'default' }
     sell_in { 1 }
     quality { 10 }
+    price { 100 }
   end
 end

@@ -11,7 +11,5 @@ class ItemService::ItemAgedBrie < ItemService::Item
 
     increament_quality
     increament_quality if item.sell_in.negative?
-
-    @item.save
   end
 end

@@ -11,7 +11,5 @@ class ItemService::ItemDefault < ItemService::Item
 
     deacrease_quality
     deacrease_quality if @item.sell_in.negative?
-
-    @item.save
   end
 end

@@ -14,8 +14,6 @@ class ItemService::ItemBackstage < ItemService::Item
     increament_quality if @item.sell_in < 6
 
     zero_quality if @item.sell_in.negative?
-
-    @item.save
   end
 
   private
