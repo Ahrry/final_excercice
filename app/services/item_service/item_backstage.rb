@@ -1,10 +1,10 @@
-class ItemService::ItemBackstage
+class ItemService::ItemBackstage < ItemService::Item
   def initialize(item:)
     raise "Error! Item type is not BACKSTAGE" unless item.backstage?
-    @item = item
+    super
   end
 
-  attr_reader
+  attr_reader :item
 
   def next_day!
     decrease_sell_in
@@ -20,15 +20,7 @@ class ItemService::ItemBackstage
 
   private
 
-  def increament_quality
-    @item.quality += 1 if @item.quality < 50
-  end
-
-  def deacrease_quality
-    @item.quality -= 1 if @item.quality.positive?
-  end
-
-  def decrease_sell_in
-    item.sell_in -= 1
+  def zero_quality
+    @item.quality = 0
   end
 end

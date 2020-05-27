@@ -8,6 +8,7 @@ class Item < ApplicationRecord
     default: 'default',
     aged_brie: 'aged_brie' ,
     backstage: 'backstage',
-    sulfura: 'sulfura'
+    sulfura: 'sulfura',
+    conjured: 'conjured'
   }
 end
