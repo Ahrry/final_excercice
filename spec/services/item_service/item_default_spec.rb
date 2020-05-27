@@ -8,12 +8,12 @@ RSpec.describe ItemService::ItemDefault do
       expect(item.reload.quality).to eq (12)
     end
 
-    it 'does incremant +1 the quality', focus:true do
-      item = create :item, quality: 10, sell_in: 1
+    it 'does decrease -1 the quality' do
+      item = create :item, quality: 50, sell_in: -1
       item_default = ItemService::ItemDefault.new(item: item)
 
       item_default.next_day!
-      expect(item.reload.quality).to eq (11)
+      expect(item.reload.quality).to eq (49)
     end
 
     it 'does not increament the quality' do

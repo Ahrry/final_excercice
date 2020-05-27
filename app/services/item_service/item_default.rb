@@ -8,7 +8,8 @@ class ItemService::ItemDefault
 
   def next_day!
     increament_quality
-    increament_quality if @item.sell_in.negative?
+    deacrease_quality if @item.sell_in.negative?
+
     @item.save
   end
 
@@ -16,5 +17,9 @@ class ItemService::ItemDefault
 
   def increament_quality
     @item.quality += 1 if @item.quality < 50
+  end
+
+  def deacrease_quality
+    @item.quality -= 1 if @item.quality.positive?
   end
 end
