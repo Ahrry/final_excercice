@@ -1,19 +1,16 @@
-class ItemService::ItemBackstage
+class ItemService::ItemAgedBrie
   def initialize(item:)
-    raise "Error! Item type is not BACKSTAGE" unless item.backstage?
+    raise "Error! Item type is not AGED BRIE" unless item.aged_brie?
     @item = item
   end
 
-  attr_reader
+  attr_reader :item
 
   def next_day!
     decrease_sell_in
 
     increament_quality
-    increament_quality if @item.sell_in < 11
-    increament_quality if @item.sell_in < 6
-
-    zero_quality if @item.sell_in.negative?
+    increament_quality if item.sell_in.negative
 
     @item.save
   end

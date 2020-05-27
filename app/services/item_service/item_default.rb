@@ -7,7 +7,9 @@ class ItemService::ItemDefault
   attr_reader :item
 
   def next_day!
-    increament_quality
+    decrease_sell_in
+
+    deacrease_quality
     deacrease_quality if @item.sell_in.negative?
 
     @item.save
@@ -21,5 +23,9 @@ class ItemService::ItemDefault
 
   def deacrease_quality
     @item.quality -= 1 if @item.quality.positive?
+  end
+
+  def decrease_sell_in
+    item.sell_in -= 1
   end
 end
