@@ -6,6 +6,7 @@ class ItemService::Item
   attr_reader :item
 
   def next_day!
+
     if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
       if item.quality > 0
         if item.name != "Sulfuras, Hand of Ragnaros"
@@ -54,6 +55,7 @@ class ItemService::Item
 
     item.save
   end
+
 end
 
 

@@ -1,8 +1,13 @@
 class Item < ApplicationRecord
-  ITEM_TYPES = %w[default aged_brie backstage sulfura].freeze
-
   validates :name, presence: true
-  validates :item_type, presence: true, inclusion: { in: ITEM_TYPES }
+  validates :item_type, presence: true
   validates :sell_in, presence: true
   validates :quality, presence: true
+
+  enum item_type: {
+    default: 'default',
+    aged_brie: 'aged_brie' ,
+    backstage: 'backstage',
+    sulfura: 'sulfura'
+  }
 end
